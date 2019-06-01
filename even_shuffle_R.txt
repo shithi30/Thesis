@@ -1,0 +1,47 @@
+setwd("F:/Thesis3")
+
+dummy <- read.csv("oasis_longitudinal_edited_csv.csv")
+
+dummy <- dummy[sample(1:nrow(dummy)), ]
+dummy <- dummy[sample(1:nrow(dummy)), ]
+dummy <- dummy[sample(1:nrow(dummy)), ]
+dummy <- dummy[sample(1:nrow(dummy)), ]
+
+dummy_zeros <- dummy[dummy$Group==0, ]
+dummy_zeros <- dummy_zeros[sample(1:nrow(dummy_zeros)), ]
+dummy_zeros <- dummy_zeros[sample(1:nrow(dummy_zeros)), ]
+dummy_zeros <- dummy_zeros[sample(1:nrow(dummy_zeros)), ]
+dummy_zeros <- dummy_zeros[sample(1:nrow(dummy_zeros)), ]
+
+dummy_ones <- dummy[dummy$Group==1, ]
+dummy_ones <- dummy_ones[sample(1:nrow(dummy_ones)), ]
+dummy_ones <- dummy_ones[sample(1:nrow(dummy_ones)), ]
+dummy_ones <- dummy_ones[sample(1:nrow(dummy_ones)), ]
+dummy_ones <- dummy_ones[sample(1:nrow(dummy_ones)), ]
+
+dummy_twos <- dummy[dummy$Group==2, ]
+dummy_twos <- dummy_twos[sample(1:nrow(dummy_twos)), ]
+dummy_twos <- dummy_twos[sample(1:nrow(dummy_twos)), ]
+dummy_twos <- dummy_twos[sample(1:nrow(dummy_twos)), ]
+dummy_twos <- dummy_twos[sample(1:nrow(dummy_twos)), ]
+
+test_zeros <- dummy_zeros[1:57, ]
+test_ones <- dummy_ones[1:38, ]
+test_twos <- dummy_twos[1:11, ]
+test <- rbind(test_zeros, test_ones, test_twos)
+
+train_zeros <- dummy_zeros[58:190, ]
+train_ones <- dummy_ones[39:127, ]
+train_twos <- dummy_twos[12:37, ]
+train <- rbind(train_zeros, train_ones, train_twos)
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+train <- train[sample(1:nrow(train)), ]
+
+dummy2 <- rbind(train, test)
+write.csv(dummy2, "oasis_longitudinal_edited_csv1.csv", row.names=FALSE)
